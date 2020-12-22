@@ -1,13 +1,14 @@
-# Template pour les projets des Caen.Camp.s
+# L'application web des CaenCamp
 
 <!-- LES BADGES
-![Tests](https://github.com/CaenCamp/api-caencamp/workflows/phpunit/badge.svg?branch=main) ![Top language](https://img.shields.io/github/languages/top/CaenCamp/api-caencamp.svg) ![Contributors](https://img.shields.io/github/contributors/CaenCamp/api-caencamp.svg) ![License](https://img.shields.io/github/license/CaenCamp/api-caencamp.svg) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg) -->
+![Tests](https://github.com/CaenCamp/api-caencamp/workflows/phpunit/badge.svg?branch=main) ![Top language](https://img.shields.io/github/languages/top/CaenCamp/front-caencamp.svg) ![Contributors](https://img.shields.io/github/contributors/CaenCamp/front-caencamp.svg) ![License](https://img.shields.io/github/license/CaenCamp/front-caencamp.svg) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg) -->
 
-<!-- Une description succinct mais motivante du projet. -->
+Les contenus des CaenCamp sont maintenant disponibles via une API REST (Hydra) et via une API GraphQL.
+Il s’agit donc de développer un nouveau front afin d’exposer ces données sur le même mode d’organisation que le site actuel, mais aussi en rajoutant une section sur les offres d’emploi.
+Le front ne servira pas dans un premier temps à alimenter les contenus (l’API dispose d’une interface d’administration dédiée).
+L’enjeu est de réaliser un site le plus économe possible (en termes de poids final, de cout à la génération…) mais aussi pleinement accessible ! La définition des bonnes pratiques permettant d’atteindre cet objectif et la mise en place des outils permettant de mesurer cette qualité sont presque un chantier en soi !
 
-Ce dépôt peut servir de [template](https://github.blog/2019-06-06-generate-new-repositories-with-repository-templates/) lorsque vous créez un nouveau projet Coding Caen.Camp.
-
-![Utiliser un template de projet](https://github.blog/wp-content/uploads/2019/06/repository-template.gif?w=1024&resize=1024%2C512)
+Les technologies choisies pour démarrer ce chantier sont : [JavaScript](https://developer.mozilla.org/fr/docs/Web/JavaScript), [Vue.js](https://vuejs.org/) et [NuxtJS](https://fr.nuxtjs.org/)
 
 ## Démarrage rapide
 
@@ -40,7 +41,7 @@ Vous souhaitez participer ? Merci à vous :+1:
 
 Et c’est très simple :
 
--   Si vous ne savez pas par où commencer, vous pouvez jeter un coup d’œil aux [**issues**](https://github.com/CaenCamp/api-caencamp/issues).
+-   Si vous ne savez pas par où commencer, vous pouvez jeter un coup d’œil aux [**issues**](https://github.com/CaenCamp/front-caencamp/issues).
 -   Voir les cartes des fonctionnalités à développer sur [**tableau Kanban**](https://github.com/orgs/CaenCamp/projects/2) du projet.
 -   Une fois que vous savez quoi faire, vous pouvez consulter le [**guide du contributeur**](./docs/CONTRIBUTING.md) pour vous lancer.
 
@@ -53,7 +54,7 @@ Certes, le [code et ses tests sont la meilleur documentation](https://martinfowl
 Pour autant, le code ne fait pas tous le projet. Vous trouverez donc, en plus de code, des informations sur le projet dans :
 
 - [le guide du contributeur](./docs/CONTRIBUTING.md)
-- [le wiki du projet](https://github.com/CaenCamp/api-caencamp/wiki)
+- [le wiki du projet](https://github.com/CaenCamp/front-caencamp/wiki)
 - [les ADR.s (notes sur les décisions d'architecture)](./docs/adr/README.md)
 
 Si vous ne savez pas trop comment participer à un projet open-source, vous pouvez aussi jeter un oeil sur notre ["Petit guide de participation aux projets des CaenCamp.s pour ceux qui ne saurait pas trop par où commencer."](https://github.com/CaenCamp/coding-caen-camp)
