@@ -5,9 +5,13 @@ help: ## Display available commands
 
 install: ## Install php deps
 	@echo "Lancement de l'installation du projet"
+	yarn install
+
 
 start: ## Start dev environment en daemon mode
 	@echo "Démarrage du projet sur votre environement local"
+	yarn dev
 
 test: ## Start tests
 	@echo "Lancement des tests du projet"
+	yarn test
