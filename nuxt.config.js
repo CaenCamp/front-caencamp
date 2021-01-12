@@ -10,11 +10,19 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  publicRuntimeConfig: {},
+
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: process.env.BASE_URL,
+    },
+  },
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: ['~/plugins/services', '~/plugins/composition-api'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -25,6 +33,7 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/composition-api',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -38,7 +47,14 @@ export default {
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  axios: {
+    baseURL: process.env.BASE_URL,
+    prefix: '/api',
+    proxy: true,
+  },
+  proxy: {
+    '/api/': process.env.BASE_URL,
+  },
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
   content: {},
