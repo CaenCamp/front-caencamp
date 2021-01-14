@@ -1,4 +1,4 @@
-interface Event {
+interface EventLite {
   '@id': string
   startDate: string
   duration: string
@@ -6,10 +6,11 @@ interface Event {
   location: Location
   organizer: Organizer
   performers: Performer[]
-  subEvents: Event[]
+  subEvents: EventLite[]
   description: string
   name: string
 }
+interface Event extends EventLite {}
 
 interface Location {
   '@id': string
@@ -43,5 +44,5 @@ enum EventAttendanceMode {
   Online = 'online',
 }
 
-export type { Event }
+export type { Event, EventLite }
 export { EventAttendanceMode }

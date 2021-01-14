@@ -8,26 +8,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api'
+import { defineComponent, computed } from '@vue/composition-api'
 import { useContext } from '@nuxtjs/composition-api'
 
-import { Event } from '~/types'
+import { EventsActionTypes } from '~/store'
 
 export default defineComponent({
   setup() {
-    const { $api } = useContext()
-    const message = ref('This is a message')
-    let events = ref<Event[]>([])
+    const { store } = useContext()
+    const events = computed(() => store.getters['events/events'])
 
     const loadEvents = async () => {
-      events.value = await $api.events.getSome({
-        page: 1,
-        itemsPerPage: 30,
-      })
+      await store.dispatch(`events/${EventsActionTypes.FETCH_SOME_EVENTS}`)
     }
 
     return {
-      message,
       loadEvents,
       events,
     }

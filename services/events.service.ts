@@ -9,6 +9,10 @@ const eventsService: Service<EventsService> = ($axios) => (resource) => ({
     )
     return response['hydra:member']
   },
+  async getSingle(id) {
+    const response: EventDto = await $axios.$get(`${resource}/id`)
+    return response
+  },
 })
 
 export type { EventsService }
