@@ -22,10 +22,7 @@ export default defineComponent({
       await store.dispatch(`events/${EventsActionTypes.FETCH_SOME_EVENTS}`)
     }
 
-    return {
-      loadEvents,
-      events,
-    }
+    return { loadEvents, events }
   },
 })
 </script>

@@ -1,5 +1,6 @@
 import type { ActionContext } from 'vuex'
 import type { EventLite, Event, Nullable } from '~/types'
+import { RootState } from './index.type'
 
 interface EventsState {
   events: EventLite[]
@@ -16,7 +17,7 @@ enum EventsMutationTypes {
   SET_EVENT = 'SET_EVENT',
 }
 
-type Mutations = {
+type EventsMutations = {
   [EventsMutationTypes.SET_EVENTS](
     state: EventsState,
     payload: EventLite[]
@@ -27,21 +28,21 @@ type Mutations = {
   ): void
 }
 
-type Actions = {
+type EventsActions = {
   [EventsActionTypes.FETCH_SOME_EVENTS](
-    ctx: ActionContext<EventsState, EventsState>,
+    ctx: ActionContext<EventsState, RootState>,
     payload: EventLite[]
   ): Promise<EventLite[]>
   [EventsActionTypes.FETCH_SINGLE_EVENT](
-    ctx: ActionContext<EventsState, EventsState>,
+    ctx: ActionContext<EventsState, RootState>,
     payload: Nullable<Event>
   ): Promise<Nullable<Event>>
 }
 
-type Getters = {
+type EventsGetters = {
   event(state: EventsState): Nullable<Event>
   events(state: EventsState): EventLite[]
 }
 
 export { EventsActionTypes, EventsMutationTypes }
-export type { Mutations, Actions, Getters, EventsState }
+export type { EventsMutations, EventsActions, EventsGetters, EventsState }

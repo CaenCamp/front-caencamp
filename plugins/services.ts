@@ -1,35 +1,11 @@
-import { Inject, Context } from '@nuxt/types/app'
+import { Plugin } from '@nuxt/types'
 
-import { eventsService, EventsService } from '~/services'
+import { events } from '~/services'
 
-interface Api {
-  events: EventsService
-}
-
-declare module 'vue/types/vue' {
-  interface Vue {
-    $api: Api
-  }
-}
-
-declare module '@nuxt/types' {
-  interface NuxtAppOptions {
-    $api: Api
-  }
-  interface Context {
-    $api: Api
-  }
-}
-
-declare module 'vuex/types/index' {
-  interface Store<S> {
-    $api: Api
-  }
-}
-
-export default (ctx: Context, inject: Inject) => {
-  const events = eventsService(ctx.$axios)('/events')
+const servicesPlugin: Plugin = (ctx, inject) => {
   inject('api', {
-    events,
+    events: events(ctx.$axios)('/events'),
   })
 }
+
+export default servicesPlugin

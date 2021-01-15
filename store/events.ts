@@ -1,20 +1,22 @@
 import { ActionTree, GetterTree, MutationTree } from 'vuex'
+import { Context } from '@nuxt/types'
 
+import { RootState } from './index.type'
 import {
-  Actions,
+  EventsActions,
   EventsActionTypes,
   EventsMutationTypes,
   EventsState,
-  Getters,
-  Mutations,
+  EventsGetters,
+  EventsMutations,
 } from './events.type'
-import { Context } from '@nuxt/types'
 
 const state = (): EventsState => ({
   events: [],
   event: null,
 })
-const mutations: MutationTree<EventsState> & Mutations = {
+
+const mutations: MutationTree<EventsState> & EventsMutations = {
   [EventsMutationTypes.SET_EVENT](state, payload) {
     state.event = payload
     return payload
@@ -24,7 +26,8 @@ const mutations: MutationTree<EventsState> & Mutations = {
     return payload
   },
 }
-const actions: ActionTree<EventsState, EventsState> & Actions = {
+
+const actions: ActionTree<EventsState, RootState> & EventsActions = {
   async [EventsActionTypes.FETCH_SINGLE_EVENT]({ commit, getters }, payload) {
     const { $api } = (this as unknown) as Context
     const data = await $api.events.getSingle('')
@@ -42,9 +45,10 @@ const actions: ActionTree<EventsState, EventsState> & Actions = {
   },
 }
 
-const getters: GetterTree<EventsState, EventsState> & Getters = {
+const getters: GetterTree<EventsState, RootState> & EventsGetters = {
   event: ({ event }) => event,
   events: ({ events }) => events,
 }
 
 export { state, mutations, actions, getters, EventsActionTypes }
+export type { EventsState, EventsGetters, EventsActions, EventsMutations }
