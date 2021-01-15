@@ -17,7 +17,11 @@ const config: NuxtConfig = {
     },
   },
   css: [],
-  plugins: ['~/plugins/services', '~/plugins/composition-api'],
+  plugins: [
+    '~/plugins/services',
+    '~/plugins/composition-api',
+    '~/plugins/axios',
+  ],
   components: true,
   buildModules: [
     '@nuxt/typescript-build',
@@ -26,7 +30,8 @@ const config: NuxtConfig = {
   ],
   modules: ['@nuxtjs/axios', '@nuxtjs/pwa', '@nuxt/content'],
   axios: {
-    baseURL: process.env.BASE_URL,
+    baseURL: 'http://localhost:3000',
+    browserBaseURL: process.env.BASE_URL,
     prefix: '/api',
     proxy: true,
   },
