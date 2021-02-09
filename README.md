@@ -25,6 +25,7 @@ Vous trouverez plus d'informations sur les `Makefile` sur le [guide des Coding C
 
 ```bash
 make install
+cp .env.example .env
 ```
 
 et lancer le projet avec :
